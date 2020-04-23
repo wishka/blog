@@ -5,18 +5,56 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
 
+<div class="container">
 
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<a style = "text color: red" class="navbar-brand" href="/">Wellcome to our Blog</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="/articles">Articles <span class="sr-only">(current)</span></a>
+						</li>
+            <li class="nav-item active">
+							<a class="nav-link" href="/articles/new">Make new article <span class="sr-only">(current)</span></a>
+						</li>
+            <li class="nav-item active">
+							<a class="nav-link" href="/about">About Us <span class="sr-only">(current)</span></a>
+						</li>
+
+
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
     <% if user_signed_in? %>
-    Hello, <%= current_user.username %> | <a href="/users/sign_out" data-method="delete"> Sign out</a>
+    Hello, <%= current_user.username %>
     <% else %>
-    <a href="/users/sign_in"> Sign in </a>
+          <a class="dropdown-item" href="/users/sign_in"> Sign in </a>
+    <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="/users/sign_out" data-method="delete"> Sign out</a>
+    </div>
     <% end %>
+
+  </li>
+        </ul>
 
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
@@ -24,7 +62,10 @@
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
-
+</div>
+</div>
+<div class="container">
     <%= yield %>
+</div>
   </body>
 </html>
