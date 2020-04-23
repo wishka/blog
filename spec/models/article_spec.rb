@@ -19,4 +19,14 @@ end
         expect(article.subject).to eq 'Lorem Ipsum'
       end
     end
+
+    discribe "#last_comment" do
+      it "return the last comment" do
+        #Создаем статью, но уже с комментариями
+        article = create(:article_with_comments)
+
+        #Проверка
+        expect(article_last_comment.body).to eq "comment body 3"
+      end
+    end
 end

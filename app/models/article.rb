@@ -6,4 +6,8 @@ class Article < ApplicationRecord
   def subject # instance method
     title
   end
+
+  def last.comment
+    comments.last
+  end
 end
