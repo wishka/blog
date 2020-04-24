@@ -38,15 +38,16 @@
             <li class="nav-item active">
 							<a class="nav-link" href="/about">About Us <span class="sr-only">(current)</span></a>
 						</li>
+            <li class="nav-item active">
+							<a class="nav-link" href="/contacts">Contacts <span class="sr-only">(current)</span></a>
+						</li>
 
-
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
     <% if user_signed_in? %>
     Hello, <%= current_user.username %>
     <% else %>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/users/sign_in"> Sign in </a>
     <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="/users/sign_out" data-method="delete"> Sign out</a>
