@@ -54,6 +54,7 @@ gem 'devise'
 group :test, :development do
   gem "rspec-rails"
   gem 'factory_bot_rails'
+  gem 'database_cleaner'
 end
 
 group :test do
